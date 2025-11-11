@@ -49,6 +49,7 @@ let
     , virtio_drive ? true
     , virtio_net ? false
     , virtio_video ? true
+    , enable_console ? false
     , ...
     }:
     {
@@ -167,6 +168,15 @@ let
               { bus = "usb"; type = "spicevmc"; }
               { bus = "usb"; type = "spicevmc"; }
             ];
+          console =
+            if enable_console then
+              [
+                {
+                  type = "pty";
+                  target = { type = "serial"; port = 0; };
+                } 
+              ]
+            else null;
         };
     };
 in
