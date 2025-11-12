@@ -50,6 +50,7 @@ let
     , virtio_net ? false
     , virtio_video ? true
     , enable_console ? false
+    , firmware ? null
     , ...
     }:
     {
@@ -58,6 +59,7 @@ let
 
       os =
         {
+          firmware = firmware;
           type = "hvm";
           arch = "x86_64";
           machine = machinetype;

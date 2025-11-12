@@ -11,12 +11,13 @@ stuff@{ packages, ... }:
 , virtio_drive ? true
 , virtio_video ? true
 , enable_console ? false
+, firmware ? null 
 , ...
 }:
 let
   base = (import ./base.nix stuff).q35
     {
-      inherit name uuid vcpu memory storage_vol backing_vol install_vol bridge_name net_iface_mac virtio_drive virtio_video enable_console;
+      inherit name uuid vcpu memory storage_vol backing_vol install_vol bridge_name net_iface_mac virtio_drive virtio_video enable_console firmware;
       virtio_net = true;
     };
 in
