@@ -153,6 +153,9 @@ let
                 {
                   enable = true;
                   package = lib.mkDefault cfg.package;
+                  extraConfig = ''
+                     firewall_backend = "nftables"
+                  '';
                   qemu.swtpm =
                     if cfg.swtpm.enable then
                       {
