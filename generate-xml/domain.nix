@@ -473,6 +473,12 @@ let
                     addresselem
                     (subelem "reconnect" [ (subattr "enabled" typeBoolYesNo) (subattr "timeout" typeInt) ] [ ])
                   ])
+                  (subelem "target"
+                    [
+                      (subattr "dev" typeString)
+                      (subattr "managed" typeBoolYesNo)
+                    ] [ ]
+                  )
                   (subelem "vlan"
                     [
                       (subattr "trunk" typeBoolYesNo)
@@ -520,6 +526,11 @@ let
                 [
                   (subattr "type" typeString)
                   (subattr "autoport" typeBoolYesNo)
+                  (subattr "port" typeInt)
+                  (subattr "tlsPort" typeInt)
+                  (subattr "passwd" typeString)
+                  (subattr "websocket" typeInt)
+                  (subattr "sharePolicy" typeString)
                 ]
                 [
                   (subelem "listen" [ (subattr "type" typeString) (subattr "address" typeString) ] [ ])
